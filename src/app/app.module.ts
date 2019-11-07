@@ -15,6 +15,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { SetupModule } from './pages/setup/setup.module';
 import { MainModule } from './pages/main/main.module';
 
+// servives
+import { LocalStorageService } from './services/local-storage/local-storage.service';
+import { ListService } from './services/list/list.service';
+import { TodoService } from './services/todo/todo.service';
+
 registerLocaleData(zh);
 
 @NgModule({
@@ -31,7 +36,12 @@ registerLocaleData(zh);
     SetupModule,
     MainModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN },
+    LocalStorageService,
+    ListService,
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

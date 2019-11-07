@@ -26,10 +26,12 @@ body {
 
 .full-screen {
   position: fixed;
+  @extend .to-edge
 }
 
 .full {
   position: absolute;
+  @extend .to-edge
 }
 
 *::-webkit-scrollbar {

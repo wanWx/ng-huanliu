@@ -1,0 +1,47 @@
+<div class="page-content">
+	<div class="wrapper">
+		<img class="logo-img" src="./assets/img/logo.png" alt="Logo">
+		<div class="text-wrapper">
+			<h1 class="title-text">环流管理系统</h1>
+		</div>
+		<!--登录-->
+		<form nz-form [formGroup]="validateForm" class="login-form">
+			<!--用户名-->
+			<nz-form-item>
+				<nz-form-control nzErrorTip="请输入用户名">
+					<nz-input-group nzPrefixIcon="user">
+						<input type="text" nz-input
+							#usernameInput
+							formControlName="username"
+							placeholder="用户名">
+					</nz-input-group>
+				</nz-form-control>
+			</nz-form-item>
+			<!--密码-->
+			<nz-form-item>
+				<nz-form-control nzErrorTip="请输入密码">
+					<nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
+						<input [type]="passwordVisible ? 'text' : 'password'"
+							formControlName="password"
+							nz-input
+							placeholder="密码">
+					</nz-input-group>
+					<ng-template #suffixTemplate>
+						<i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+							(click)="passwordVisible = !passwordVisible"></i>
+					</ng-template>
+				</nz-form-control>
+			</nz-form-item>
+			<!--登录-->
+			<nz-form-item>
+				<button nz-button (click)="Login()" 
+					[nzType]="'primary'"
+					[disabled]="!usernameInput.value"
+					[nzLoading]="isbtnloading">登录</button>
+			</nz-form-item>
+		</form>
+		<div class="copy-right">
+			Copyright © 2018 Wendell Hu
+		</div>
+	</div>
+</div>

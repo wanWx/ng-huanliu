@@ -10,6 +10,8 @@ import { RightControlComponent } from './right-control/right-control.component';
 import { HeaderComponent } from './right-control/header/header.component';
 import { QuickAddComponent } from './right-control/quick-add/quick-add.component';
 import { TodoComponent } from './right-control/todo/todo.component';
+import { SuggestComponent } from './right-control/header/suggest/suggest.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 
@@ -21,7 +23,9 @@ import { TodoComponent } from './right-control/todo/todo.component';
     RightControlComponent,
     HeaderComponent,
     QuickAddComponent,
-    TodoComponent
+    TodoComponent,
+    SuggestComponent,
+    DetailComponent
   ],
   imports: [
     CommonModule,

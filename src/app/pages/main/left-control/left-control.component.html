@@ -1,8 +1,8 @@
 <div class="header-warpper">
 	<img src="./assets/img/default-avatar.png">
 	<span class="username-text" 
-		*ngIf="!isCollapsed">Admin</span>
-	<div class="floating-btn header-btn"
+		*ngIf="!isCollapsed">{{username}}</span>
+	<div (click)="goSetting()" class="floating-btn header-btn"
 		*ngIf="!isCollapsed">
 		<i nz-icon [nzType]="'setting'"></i>
 	</div>

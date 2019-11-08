@@ -25,8 +25,8 @@ import { TodoService } from '../../../../services/todo/todo.service';
 })
 export class ListComponent implements OnInit, OnDestroy {
   @Input() isCollapsed: boolean;
-  @ViewChild('listRenameInput') private listRenameInput: ElementRef;
-  @ViewChild('listInput') private listInput: ElementRef;
+  @ViewChild('listRenameInput', {static: false}) private listRenameInput: ElementRef;
+  @ViewChild('listInput', {static: false}) private listInput: ElementRef;
 
   lists: List[];
   currentListUuid: string;

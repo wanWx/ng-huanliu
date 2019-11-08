@@ -7,6 +7,7 @@ import {
   START_USING_DATE
 } from '../../services/local-storage/local-storage.namespace';
 import { getTodayTime } from '../../../utils/time';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setup',
@@ -22,7 +23,8 @@ export class SetupComponent implements OnInit {
 
   constructor(
     private store: LocalStorageService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class SetupComponent implements OnInit {
     this.store.set(INIT_FLAG, true);
     this.store.set(START_USING_DATE, getTodayTime());
     this.isbtnloading = true;
+    this.router.navigateByUrl('main');
     // this.store.set(USERNAME, this.username);
   }
 

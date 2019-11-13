@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonCoModule } from '../app/common/common.module';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -29,7 +30,8 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     SetupModule,
-    MainModule
+    MainModule,
+    CommonCoModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

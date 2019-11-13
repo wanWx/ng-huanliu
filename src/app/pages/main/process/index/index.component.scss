@@ -1,0 +1,43 @@
+.process-header {
+	height: 70px;
+	border-bottom: 1px solid #e7eaec;
+	padding-left: 25px;
+	display: flex;
+	.process-header-title {
+		height: inherit;
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.process-header-data {
+		margin-left: 150px;
+		.data-list {
+			display: flex;
+			height: inherit;
+			li {
+				display: flex;
+				width: 60px;
+				flex-direction: column;
+				text-align: center;
+				margin-left: 30px;
+				.successCount {
+					font-size: 30px;
+					color: #09c;
+				}
+				.red {
+					color: red;
+				}
+				.data-type {
+					font-size: 10px;
+    			color: #888
+				}
+			}
+			:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.search-content {
+	padding: 10px 24px;
+}

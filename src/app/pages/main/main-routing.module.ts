@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
 
@@ -6,12 +5,12 @@ import { MainComponent } from './main.component';
 const routes: Routes = [
   {
     path: 'main',
-    component: MainComponent
+    component: MainComponent,
+    children: [
+      { path: '', redirectTo: 'process', pathMatch: 'full' },
+      { path: 'process', loadChildren: './process/process.module#ProcessModule' },
+    ]
   }
 ];
 
-@NgModule({
-  imports: [ RouterModule.forChild(routes) ],
-  exports: [ RouterModule ]
-})
-export class MainRoutingModule { }
+export const MainRoutingModule = RouterModule.forChild(routes);

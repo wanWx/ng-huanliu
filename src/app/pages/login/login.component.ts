@@ -1,20 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LocalStorageService } from '../../services/local-storage/local-storage.service';
-import {
-  USERNAME,
-  INIT_FLAG,
-  START_USING_DATE
-} from '../../services/local-storage/local-storage.namespace';
-import { getTodayTime } from '../../../utils/time';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
+import { INIT_FLAG, START_USING_DATE } from 'src/app/services/local-storage/local-storage.namespace';
+import { getTodayTime } from 'src/utils/time';
 
 @Component({
-  selector: 'app-setup',
-  templateUrl: './setup.component.html',
-  styleUrls: ['./setup.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class SetupComponent implements OnInit {
-
+export class LoginComponent implements OnInit {
   validateForm: FormGroup;
 
   passwordVisible = false;
@@ -38,7 +33,6 @@ export class SetupComponent implements OnInit {
     this.store.set(INIT_FLAG, true);
     this.store.set(START_USING_DATE, getTodayTime());
     this.isbtnloading = true;
-    // this.store.set(USERNAME, this.username);
   }
 
 }

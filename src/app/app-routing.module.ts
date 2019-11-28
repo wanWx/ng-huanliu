@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SetupComponent } from './pages/setup/setup.component';
+import { LoginComponent } from './pages/login';
 
 
 const routes: Routes = [
-  { path: 'setup', component: SetupComponent },
-  { path: 'main', redirectTo: '/main', pathMatch: 'full' },
-  { path: '', redirectTo: '/main', pathMatch: 'full' } // 重定向
+  { path: '', redirectTo: 'login', pathMatch: 'full' }, // 重定向
+  { path: 'main', loadChildren: './pages/main/main.module#MainModule' },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

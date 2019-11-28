@@ -4,11 +4,11 @@ import { MainComponent } from './main.component';
 
 const routes: Routes = [
   {
-    path: 'main',
+    path: '',
     component: MainComponent,
     children: [
-      { path: '', redirectTo: 'process', pathMatch: 'full' },
-      { path: 'process', loadChildren: './process/process.module#ProcessModule' },
+      { path: '', redirectTo: '/process', pathMatch: 'full' },
+      { path: 'process', loadChildren: './process/process.module#ProcessModule' }
     ]
   }
 ];

@@ -12,8 +12,8 @@ import { SharedModule } from './shared';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
-import { MainModule } from './pages/main/main.module';
 import { LayoutModule } from './layout/layout.module';
+
 
 
 registerLocaleData(zh);
@@ -27,7 +27,6 @@ registerLocaleData(zh);
     AppRoutingModule,
     NgZorroAntdModule,
     HttpClientModule,
-    MainModule,
     LayoutModule,
     SharedModule,
     BrowserAnimationsModule,

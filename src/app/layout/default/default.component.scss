@@ -1,0 +1,41 @@
+.main-header {
+	display: flex;
+	justify-content: space-between;
+	background-color: #333;
+	.title {
+		width: 120px;
+		color: white;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.user-content {
+		height: 64px;
+		margin: 0;
+		display: flex;
+		li {
+			display: inline-block;
+			height: inherit;
+			width: 54px;
+			text-align: center;
+			i {
+				color: white;
+				width: 21px;
+				height: 21px;
+			}
+			a {
+				min-height: 64px;
+				img {
+					width: 31px;
+					height: 31px;
+				}
+			}
+		}
+		li:hover {
+			background-color: #3a4459;
+		}
+	}
+}
+
+.inner-layout {
+	background-color: white;
+}

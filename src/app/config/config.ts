@@ -46,4 +46,10 @@ export const eDate = [
   { name: '反馈时间', value: 'feedbackTime'}
 ];
 
+export const PRODUCT = [
+  { name: '请选择', value: '' },
+  { name: '环流', value: '1' },
+  { name: '阳光交易系统', value: '2'}
+];
+
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuService } from 'src/app/mock';
 
 @Component({
   selector: 'app-default',
@@ -9,9 +11,19 @@ export class DefaultComponent implements OnInit {
 
   isCollapsed = false;
 
-  constructor() { }
+  menus = [];
+
+  constructor(
+    private router: Router,
+    private menu: MenuService
+  ) { }
 
   ngOnInit() {
+    this.menus = this.menu.menus();
+  }
+
+  getLogout() {
+    this.router.navigate(['login']);
   }
 
 }

@@ -9,46 +9,38 @@
 				<i nz-icon [nzType]="'bell'"></i>
 			</li>
 			<li class="user-img" nz-dropdown [nzDropdownMenu]="menu">
-					<a class="user-img"><img src="../../../assets/img/logo.png" alt=""></a>
+				<a class="user-img"><img src="assets/img/logo.png" alt=""></a>
 			</li>
 		</ul>
 		<!--下拉菜单-->
 		<nz-dropdown-menu #menu="nzDropdownMenu">
 			<ul nz-menu nzSelectable>
 				<li nz-menu-item>修改密码</li>
-				<li nz-menu-item>退出</li>
+				<li nz-menu-item (click)="getLogout()">退出</li>
 			</ul>
 		</nz-dropdown-menu>
 	</nz-header>
 	<nz-layout>
 		<nz-sider nzWidth="230px">
 			<ul nzTheme="dark" nz-menu nzMode="inline" class="sider-menu">
-				<li nz-submenu nzOpen nzIcon="user" nzTitle="流程管理">
-					<ul>
-						<li nz-menu-item nzSelected routerLink="/main/process">流程列表</li>
-						<li nz-menu-item>提交流程</li>
-						<li nz-menu-item>设计任务</li>
-						<li nz-menu-item>我的归档</li>
-						<li nz-menu-item>版本列表</li>
-					</ul>
-				</li>
-				<li nz-submenu nzTitle="数据报表" nzIcon="laptop">
-					<ul>
-						<li nz-menu-item>option5</li>
-						<li nz-menu-item>option6</li>
-						<li nz-menu-item>option7</li>
-						<li nz-menu-item>option8</li>
-					</ul>
-				</li>
-				<li nz-submenu nzTitle="系统设置" nzIcon="notification">
-					<ul>
-						<li nz-menu-item>系统参数设置</li>
-					</ul>
-				</li>
+				<ng-container *ngFor="let menu of menus">
+					<li nz-submenu [nzOpen]="menu.open" *ngIf="menu.children.length">
+						<span title><i nz-icon [nzType]="menu.icon"></i><span
+								class="nav-text">{{menu.text}}</span></span>
+						<ul>
+							<li nz-menu-item nzMatchRouter *ngFor="let children of menu.children"
+								[routerLink]="[children.link]">{{children.text}}</li>
+						</ul> 
+					</li>
+					<li nz-menu-item nzMatchRouter *ngIf="menu.children.length === 0" [routerLink]="[menu.link]">
+						<span title><i nz-icon [nzType]="menu.icon"></i><span
+								class="nav-text">{{menu.text}}</span></span>
+					</li>
+				</ng-container>
 			</ul>
 		</nz-sider>
 		<nz-layout class="inner-layout">
-			<!-- <router-outlet></router-outlet> -->
+			<router-outlet></router-outlet>
 		</nz-layout>
 	</nz-layout>
 </nz-layout>

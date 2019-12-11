@@ -1,6 +1,6 @@
 <div class="page-content">
 	<div class="wrapper">
-		<img class="logo-img" src="./assets/img/logo.png" alt="Logo">
+		<img class="logo-img" src="assets/img/logo.png" alt="Logo">
 		<div class="text-wrapper">
 			<h1 class="title-text">环流管理系统</h1>
 		</div>
@@ -25,7 +25,8 @@
 							formControlName="password"
 							nz-input
 							placeholder="密码">
-					</nz-input-group>
+          </nz-input-group>
+          <!--明文/密文-->
 					<ng-template #suffixTemplate>
 						<i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
 							(click)="passwordVisible = !passwordVisible"></i>
@@ -37,7 +38,7 @@
 				<button nz-button (click)="Login()" 
 					[nzType]="'primary'"
 					[disabled]="!usernameInput.value"
-					[nzLoading]="isbtnloading">登录</button>
+					[nzLoading]="isbtnloading">{{loadingdesc}}</button>
 			</nz-form-item>
 		</form>
 		<div class="copy-right">

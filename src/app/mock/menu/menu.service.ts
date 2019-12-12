@@ -8,6 +8,12 @@ export class MenuService {
   constructor() { }
   Menus = [
     {
+      text: '首页',
+      link: 'home',
+      icon: 'home',
+      children: []
+    },
+    {
       text: '流程管理',
       link: '',
       icon: 'user',

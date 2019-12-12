@@ -62,9 +62,6 @@ export class LoginComponent implements OnInit {
         // 获取城市字典
         this.getCity();
       });
-      // if (this.userName.value === 'admin' && this.passWord.value === '123' ) {
-      //   this.router.navigate(['/main/process/submit-process']);
-      // }
     }
   }
 
@@ -88,18 +85,19 @@ export class LoginComponent implements OnInit {
       const items = res.PartnerAccounts;
       if (items.length !== 0) {
 
-          const id = items[0][key][idkey];
+        const id = items[0][key][idkey];
 
-          this.sessionStorage.setObject('accountInfor', res);
-          this.sessionStorage.setObject('activeAccountInfor', items[0]);
+        this.sessionStorage.setObject('accountInfor', res);
+        this.sessionStorage.setObject('activeAccountInfor', items[0]);
 
 
-          // 获取权限支点
-          this.service.getAllPermissions({}, data => {
+        // 获取权限支点
+        this.service.getAllPermissions({}, data => {
 
-              this.sessionStorage.setObject('permission', data.AllPermissions);
-              // 路由跳转
-          });
+          this.sessionStorage.setObject('permission', data.AllPermissions);
+          // 路由跳转
+          this.router.navigate(['/main/home']);
+        });
       } else {
           this.message.create('error', '还未加入任何团队，请耐心等待管理员分配');
       }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  Api: '***'
+  Api: 'https://dev.ykhcn.net/api/newhouse/'
 };
 
 /*

@@ -10,7 +10,11 @@ const routes: Routes = [
     path: 'main',
     component: DefaultComponent,
     children: [
-      { path: '', redirectTo: 'process', pathMatch: 'full' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      {
+        path: 'home',
+        loadChildren: './pages/home#HomeModule'
+      },
       {
         path: 'process',
         loadChildren: './pages/process#ProcessModule'

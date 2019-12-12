@@ -16,7 +16,7 @@ export class InterceptorHeaderService implements HttpInterceptor {
     const key = 'AccessToken';
 
     const token = this.sessionStorage.getObject('token') || {};
-    const authReq = req.clone({setHeaders: {Auchorization: `Bearer ${token[key]}`}});
+    const authReq = req.clone({setHeaders: {Authorization: `Bearer ${token[key]}`}});
     return next.handle(authReq);
   }
 

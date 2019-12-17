@@ -1,14 +1,15 @@
 <div class="page-content">
 	<div class="wrapper">
-		<img class="logo-img" src="assets/img/logo.png" alt="Logo">
-		<div class="text-wrapper">
-			<h1 class="title-text">环流管理系统</h1>
+		<div class="tab">
+			<div [ngClass]="{'active': tabActive}" (click)="tabActive = !tabActive">账号登录</div>
+			<div [ngClass]="{'active': !tabActive}" (click)="tabActive = !tabActive">扫码登录</div>
 		</div>
 		<!--登录-->
-		<form nz-form [formGroup]="validateForm" class="login-form">
+		<form *ngIf="tabActive" nz-form [formGroup]="validateForm" class="login-form">
 			<!--用户名-->
 			<nz-form-item>
-				<nz-form-control nzErrorTip="请输入用户名">
+				<nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="username">账号</nz-form-label>
+				<nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="请输入用户名">
 					<nz-input-group nzPrefixIcon="user">
 						<input type="text" nz-input
 							#usernameInput
@@ -19,7 +20,8 @@
 			</nz-form-item>
 			<!--密码-->
 			<nz-form-item>
-				<nz-form-control nzErrorTip="请输入密码">
+				<nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="password">密码</nz-form-label>
+				<nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="请输入密码">
 					<nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
 						<input [type]="passwordVisible ? 'text' : 'password'"
 							formControlName="password"
@@ -37,12 +39,13 @@
 			<nz-form-item>
 				<button nz-button (click)="Login()" 
 					[nzType]="'primary'"
-					[disabled]="!usernameInput.value"
 					[nzLoading]="isbtnloading">{{loadingdesc}}</button>
 			</nz-form-item>
 		</form>
-		<div class="copy-right">
-			Copyright © 2018 Wendell Hu
+		<!--二维码登录-->
+		<div *ngIf="!tabActive" class="qr_content">
+			<img src="/assets/img/qr_code.png" alt="登录二维码">
+			<span>请使用客户端扫码登录<a >刷新</a></span>
 		</div>
 	</div>
 </div>

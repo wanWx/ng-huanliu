@@ -1,4 +1,6 @@
-@import "./global.scss";
+@import './variables/index.scss';
+@import './mixin/index.scss';
+@import './util/index.scss';
 
 .content-padding {
     padding: 24px;

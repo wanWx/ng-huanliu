@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
 
   loadingdesc = '登录';
 
+  public tabActive = true;
+
   public loaderToast: any = '';
 
   constructor(

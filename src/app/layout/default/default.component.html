@@ -1,50 +1,48 @@
 <nz-layout class="full-screen">
-	<nz-header class="main-header">
-		<h2 class="title">环流管理系统</h2>
-		<ul class="user-content">
-			<li>
-				<i nz-icon [nzType]="'bell'"></i>
-			</li>
-			<li>
-				<i nz-icon [nzType]="'bell'"></i>
-			</li>
-			<li class="user-img" nz-dropdown [nzDropdownMenu]="menu">
-				<a class="user-img"><img src="assets/img/logo.png" alt=""></a>
-			</li>
+	<nz-sider nzWidth="230px">
+    <div class="logo">
+      <img src="/assets/img/menu_logo.png" alt="Logo">
+      <h2>平台运营管理系统</h2>
+    </div>
+		<ul nzTheme="dark" nz-menu nzMode="inline" class="sider-menu">
+			<ng-container *ngFor="let menu of menus">
+      <li nz-submenu [nzOpen]="menu.open" *ngIf="menu.children.length">
+          <span title>
+            <i nz-icon [nzType]="menu.icon"></i>
+            <span class="nav-text">{{menu.text}}</span>
+          </span>
+          <ul>
+            <li nz-menu-item nzMatchRouter *ngFor="let children of menu.children"
+              [routerLink]="[children.link]">{{children.text}}</li>
+          </ul> 
+        </li>
+            <li nz-menu-item nzMatchRouter *ngIf="menu.children.length === 0" [routerLink]="[menu.link]">
+              <span title>
+          <i nz-icon [nzType]="menu.icon"></i>
+          <span class="nav-text">{{menu.text}}</span>
+        </span>
+				</li>
+			</ng-container>
 		</ul>
-		<!--下拉菜单-->
-		<nz-dropdown-menu #menu="nzDropdownMenu">
-			<ul nz-menu nzSelectable>
-				<li nz-menu-item>修改密码</li>
-				<li nz-menu-item (click)="getLogout()">退出</li>
-			</ul>
-		</nz-dropdown-menu>
-	</nz-header>
+  </nz-sider>
+  
 	<nz-layout>
-		<nz-sider nzWidth="230px">
-			<ul nzTheme="dark" nz-menu nzMode="inline" class="sider-menu">
-				<ng-container *ngFor="let menu of menus">
-					<li nz-submenu [nzOpen]="menu.open" *ngIf="menu.children.length">
-            <span title>
-              <i nz-icon [nzType]="menu.icon"></i>
-              <span class="nav-text">{{menu.text}}</span>
-            </span>
-						<ul>
-							<li nz-menu-item nzMatchRouter *ngFor="let children of menu.children"
-								[routerLink]="[children.link]">{{children.text}}</li>
-						</ul> 
-					</li>
-					<li nz-menu-item nzMatchRouter *ngIf="menu.children.length === 0" [routerLink]="[menu.link]">
-						<span title>
-              <i nz-icon [nzType]="menu.icon"></i>
-              <span class="nav-text">{{menu.text}}</span>
-            </span>
-					</li>
-				</ng-container>
-			</ul>
-		</nz-sider>
-		<nz-layout class="inner-layout">
+    <nz-header class="main-header">
+      <div class="user-content">
+        <div class="user-img" nz-dropdown [nzDropdownMenu]="menu">
+          <a class="user-img"><img src="assets/img/logo.png" alt="头像">系统管理员</a>
+        </div>
+      </div>
+      <!--下拉菜单-->
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item>修改密码</li>
+          <li nz-menu-item (click)="getLogout()">退出</li>
+        </ul>
+      </nz-dropdown-menu>
+    </nz-header>
+		<nz-content class="inner-layout">
 			<router-outlet></router-outlet>
-		</nz-layout>
+		</nz-content>
 	</nz-layout>
 </nz-layout>

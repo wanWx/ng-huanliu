@@ -1,0 +1,13 @@
+// 正方形
+@mixin square($a) {
+  display: block;
+  width: $a;
+  height: $a;
+}
+
+// 圆角
+@mixin radius($a, $b: 2 * $a) {
+  width: $a;
+  height: $a;
+  border-radius: $b;
+}

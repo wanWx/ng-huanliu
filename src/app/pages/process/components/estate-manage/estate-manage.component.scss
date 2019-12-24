@@ -1,0 +1,84 @@
+@import '../../../../../assets/scss/index.scss';
+
+.header {
+    width: 100%;
+    border-bottom: 1px solid #e7eaec;
+    padding: 20px;
+    @include center-y;
+    justify-content: space-between;
+    .header-left {
+        h2 {
+            font-size: 18px;
+            color: #000;
+            font-size: 500;
+        }
+    }
+}
+.main {
+    display: flex;
+    .main-left {
+        width: 300px;
+        min-height: 400px;
+        max-height: 700px;
+        padding-left: 20px;
+        overflow-y: scroll;
+        border-right: 1px solid #e7eaec;
+        .main-left-header {
+            height: 30px;
+            margin-top: 22px;
+            margin-left: 10px;
+            .city-header-icon {
+                width: 0px;
+                height: 2px;
+                border-left: 4px solid #3981FF;
+            }
+            span {
+                margin-left: 8px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #3981FF;
+            }
+        }
+    }
+    .main-right {
+        flex: 1;
+        .main-right-header {
+            padding: 20px;
+            .right-form {
+                justify-content: space-between;
+                @include center-y;
+                .submitBtn {
+                    width: 88px;
+                }
+            }
+        }
+    }
+}
+:host ::ng-deep .ant-tree {
+    overflow: hidden;
+    margin: 0 -24px;
+		padding: 0 24px;
+		li {
+			padding: 4px 0 0 0;
+			span.ant-tree-switcher {
+				height: 38px;
+    		line-height: 38px;
+			}
+			.custom-node {
+				cursor: pointer;
+				line-height: 38px;
+				margin-left: 4px;
+				display: inline-block;
+				margin: 0 -1000px;
+				padding: 0 1000px;
+				.file-name,
+				.folder-name {
+						margin-left: 4px;
+				}
+			}
+			.active {
+				background: #F1F8FF;
+				color: #3981FF;
+			}
+		}
+}

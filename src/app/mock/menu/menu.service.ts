@@ -36,12 +36,12 @@ export class MenuService {
         },
         {
           text: '我的归档',
-          link: '/main/process/process-list4',
+          link: '/main/process/my-file',
           icon: '',
         },
         {
-          text: '版本列表',
-          link: '/main/process/process-list5',
+          text: '楼盘管理',
+          link: '/main/process/estate-manage',
           icon: '',
         }
       ]

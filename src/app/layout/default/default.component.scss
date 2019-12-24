@@ -31,6 +31,11 @@
 	}
 	
 	.inner-layout {
-		background-color: white;
+		background-color: #F1F2F5;
+		padding: 15px;
+		.content {
+			min-height: 700px;
+			background-color: #fff;
+		}
 	}
 }

@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="process-chart">
+    <!--起始-->
+    <div class="start-box">
+      <div class="start">
+        <h4>流程发起</h4>
+      </div>
+    </div>
+    <!--中间-->
+    <div class="block-box" *ngFor="let item of Data">
+      <div class="line-space">
+        <div *ngIf="item.children && item.children[0].isNode == 'left'" class="left-line" style="width: 400px"></div>
+        <div class="middle-line"></div>
+        <div *ngIf="item.children && item.children[item.children.length-1].isNode == 'right'" class="right-line" style="width: 400px"></div>
+      </div>
+      <div class="step-block">
+        <div class="middle-block">
+          <div class="middle-block-header">
+            <span>步骤{{item.id}}</span>
+            <div class="fun-icon">
+              <i>1</i>
+              <i>1</i>
+            </div>
+          </div>
+          <div class="middle-block-main">
+            <span>{{item.label}}</span>
+          </div>
+        </div>
+        <div *ngFor="let items of item.children"
+          class="middle-block"
+          [class.middle-block-bottom]="items.isNode == 'bottom'"
+          [class.middle-block-left]="items.isNode == 'left'"
+          [class.middle-block-right]="items.isNode == 'right'"
+         >
+          <div class="middle-block-header">
+            <span>步骤{{item.id}}</span>
+            <div class="fun-icon">
+              <i>1</i>
+              <i>1</i>
+            </div>
+          </div>
+          <div class="middle-block-main">
+            <span>{{items.label}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--中间-->
+    <!-- <div class="block-box">
+      <div class="step-block">
+        <div class="middle-block">
+          <div class="middle-block-header">
+            <span>步骤1</span>
+            <div class="fun-icon">
+              <i>1</i>
+              <i>1</i>
+            </div>
+          </div>
+          <div class="middle-block-main">
+            <span>重置上级</span>
+          </div>
+        </div>
+        <div class="middle-block" style="position: absolute; left: 400px;top: 0px;">
+          <div class="middle-block-header">
+            <span>步骤1</span>
+            <div class="fun-icon">
+              <i>1</i>
+              <i>1</i>
+            </div>
+          </div>
+          <div class="middle-block-main">
+            <span>重置上级</span>
+          </div>
+        </div>
+        <div class="middle-block" style="position: absolute; right: 400px;top: 0px;">
+          <div class="middle-block-header">
+            <span>步骤1</span>
+            <div class="fun-icon">
+              <i>1</i>
+              <i>1</i>
+            </div>
+          </div>
+          <div class="middle-block-main">
+            <span>重置上级</span>
+          </div>
+        </div>
+      </div>
+      <div class="line-space"></div>
+    </div> -->
+  </div>
+</div>

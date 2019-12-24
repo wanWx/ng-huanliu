@@ -5,7 +5,7 @@
   font-size: 14px;
 }
 
-p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd{
+p,h1,h2,h3,h4,h5,h6,ol,dl,dt,dd{
   /* 默认有边距，都要清除 */
   margin: 0;
   padding: 0;
@@ -17,6 +17,11 @@ p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd{
   list-style: none;
   /* 默认鼠标 */
   cursor: default;
+}
+
+ul, li {
+   /* 去掉列表的原点 */
+   list-style: none;
 }
 
 

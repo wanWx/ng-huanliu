@@ -3,7 +3,7 @@
     <div class="header-left">
       <h2 class="">楼盘管理 | Property Manage</h2>
     </div>
-    <button nz-button nzType="primary">添加楼盘</button>
+    <button nz-button nzType="primary" (click)="addHouseModal()">添加楼盘</button>
   </div>
   <div class="main">
     <div class="main-left">
@@ -72,7 +72,7 @@
             <td>{{ data.age }}</td>
             <td>{{ data.address }}</td>
             <td>
-              <a>编辑</a>
+              <a (click)="getRouter()">编辑</a>
               <nz-divider nzType="vertical"></nz-divider>
               <a>删除</a>
             </td>
@@ -81,4 +81,15 @@
       </nz-table>
     </div>
   </div>
+  <!--新增/编辑-->
+  <nz-modal
+    nzWidth="800"
+    [(nzVisible)]="isVisible"
+    nzTitle="Modal Title"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading"
+  >
+    
+  </nz-modal>
 </div>

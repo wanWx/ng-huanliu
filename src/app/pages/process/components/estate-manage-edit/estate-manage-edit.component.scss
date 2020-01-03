@@ -1,0 +1,15 @@
+@import '../../../../../assets/scss/index.scss';
+
+.header {
+    width: 100%;
+    padding: 20px;
+    @include center-y;
+    justify-content: space-between;
+    .header-left {
+        h2 {
+            font-size: 18px;
+            color: #000;
+            font-size: 500;
+        }
+    }
+}

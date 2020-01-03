@@ -3,6 +3,7 @@ import { IndexService } from './service';
 import { CoolLocalStorage } from 'src/app/common';
 import { NzTreeNode, NzFormatEmitEvent } from 'ng-zorro-antd';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estate-manage',
@@ -12,7 +13,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class EstateManageComponent implements OnInit {
   public nzTrees: any;
   activedNode: NzTreeNode;
-
   public seachForm: FormGroup;
 
   listOfData = [
@@ -39,10 +39,14 @@ export class EstateManageComponent implements OnInit {
     }
   ];
 
+  isOkLoading = false;
+  isVisible = false;
+
   constructor(
     private localStorage: CoolLocalStorage,
     private service: IndexService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -84,4 +88,14 @@ export class EstateManageComponent implements OnInit {
   activeNode(data: NzFormatEmitEvent): void {
     this.activedNode = data.node!;
   }
+  getRouter() {
+    this.router.navigate(['/main/process/estate-manage/edit']);
+  }
+  addHouseModal(): void {
+    this.isVisible = true;
+  }
+  handleCancel(): void {
+    this.isVisible = false;
+  }
+  handleOk() {}
 }

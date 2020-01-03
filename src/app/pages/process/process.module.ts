@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared';
 import { ProcessRoutingModule } from './process-routing.module';
-import { ProcessListComponent, SubmitProcessComponent, DesignTaskComponent, MyFileComponent, EstateManageComponent } from './components';
+import { ProcessListComponent,
+  SubmitProcessComponent,
+  DesignTaskComponent,
+  MyFileComponent,
+  EstateManageComponent,
+  EstateManageEditComponent } from './components';
 
 
 @NgModule({
@@ -11,6 +16,7 @@ import { ProcessListComponent, SubmitProcessComponent, DesignTaskComponent, MyFi
     DesignTaskComponent,
     MyFileComponent,
     EstateManageComponent,
+    EstateManageEditComponent
   ],
   imports: [
     SharedModule,

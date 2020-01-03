@@ -4,7 +4,8 @@ import { ProcessListComponent,
     SubmitProcessComponent,
     DesignTaskComponent,
     MyFileComponent,
-    EstateManageComponent } from './components';
+    EstateManageComponent,
+    EstateManageEditComponent} from './components';
 
 const routes: Routes = [
   { path: '', redirectTo: 'process-list', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'submit-process', component: SubmitProcessComponent },
   { path: 'design-task', component: DesignTaskComponent },
   { path: 'my-file', component: MyFileComponent },
-  { path: 'estate-manage', component: EstateManageComponent }
+  { path: 'estate-manage', component: EstateManageComponent },
+  { path: 'estate-manage/edit', component: EstateManageEditComponent }
 ];
 
 @NgModule({
